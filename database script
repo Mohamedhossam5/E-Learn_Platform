@@ -1,0 +1,86 @@
+CREATE TABLE Users (
+    UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    Role VARCHAR(50) NOT NULL,  -- e.g., 'Admin', 'Instructor', 'Student'
+    ProfilePicture VARCHAR(255),
+    Bio TEXT,
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert Admin
+INSERT INTO Users (FirstName, LastName, Email, PasswordHash, Role)
+VALUES ('John', 'Doe', 'admin@example.com', 'hashedpassword123', 'Admin');
+
+-- Insert Instructor
+INSERT INTO Users (FirstName, LastName, Email, PasswordHash, Role)
+VALUES ('Alice', 'Smith', 'alice@example.com', 'hashedpassword456', 'Instructor');
+
+-- Insert Student
+INSERT INTO Users (FirstName, LastName, Email, PasswordHash, Role)
+VALUES ('Bob', 'Johnson', 'bob@example.com', 'hashedpassword789', 'Student');
+
+
+CREATE TABLE Courses (
+    CourseID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CourseName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    CategoryID INTEGER,
+    Level VARCHAR(50) CHECK (Level IN ('Beginner', 'Intermediate', 'Advanced')),
+    Price DECIMAL(10,2) DEFAULT 0.00,
+    Duration INTEGER,  -- in hours
+    ThumbnailURL VARCHAR(255),
+    Language VARCHAR(100),
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+);
+
+CREATE TABLE Categories (
+    CategoryID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CategoryName VARCHAR(255) NOT NULL,
+    ParentCategoryID INTEGER,
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ParentCategoryID) REFERENCES Categories(CategoryID)
+);
+
+
+CREATE TABLE Course_Content (
+    ContentID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CourseID INTEGER,
+    ContentType VARCHAR(50) CHECK (ContentType IN ('Video', 'Text', 'Quiz')),
+    Title VARCHAR(255),
+    Sequence INTEGER,  -- The order in which the content appears in the course
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+CREATE TABLE Video_Contents (
+    VideoID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ContentID INTEGER,
+    VideoURL VARCHAR(255),
+    Duration INTEGER,  -- in minutes
+    FOREIGN KEY (ContentID) REFERENCES Course_Content(ContentID)
+);
+
+CREATE TABLE Text_Contents (
+    TextID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ContentID INTEGER,
+    Body TEXT,
+    FOREIGN KEY (ContentID) REFERENCES Course_Content(ContentID)
+);
+
+
+CREATE TABLE Course_Materials (
+    MaterialID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CourseID INTEGER,
+    FilePath VARCHAR(255),
+    FileType VARCHAR(50),
+    Description TEXT,
+    Sequence INTEGER,  -- The order in which materials are presented
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
