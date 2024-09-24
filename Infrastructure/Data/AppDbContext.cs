@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Core.Entities;
+
 
 namespace Infrastructure.Data;
 
@@ -10,8 +12,7 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
 
