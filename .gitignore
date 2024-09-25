@@ -20,3 +20,5 @@ obj/
 *.bak
 *.tmp
 
+
+.fake

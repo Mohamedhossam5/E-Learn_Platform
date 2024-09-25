@@ -10,8 +10,8 @@ public class AppUser : IdentityUser
 
     public string? LastName { get; set; }
 
-    public string Role { get; set; } = null!;
-
+    // public string Role { get; set; } = null!;
+    public string? Role { get; set; }
     public string? ProfilePicture { get; set; }
 
     public string? Bio { get; set; }
