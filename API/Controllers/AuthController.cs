@@ -1,12 +1,13 @@
 using Infrastructure.Data;
 using Infrastructure.Services.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace TestApiJWT.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -44,6 +45,7 @@ namespace TestApiJWT.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpPost("addrole")]
         public async Task<IActionResult> AddRoleAsync([FromBody] AddRoleModel model)
         {

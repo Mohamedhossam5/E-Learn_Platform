@@ -69,14 +69,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.MapIdentityApi<AppUser>();
-app.ApplyMigrations();
+
+// Used for builtIn 
+
+// app.MapIdentityApi<AppUser>();
+// app.ApplyMigrations();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseAuthentication();  
 app.UseAuthorization();
+
+app.UseDefaultFiles(new DefaultFilesOptions
+{
+    DefaultFileNames = new List<string> { "index.html" }
+});
 
 app.MapControllers();  // Assuming Identity API routing is handled within controllers
 
