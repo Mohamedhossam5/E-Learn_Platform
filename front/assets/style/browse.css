@@ -1,0 +1,603 @@
+    :root {
+        --primary-background: #ffffff;
+        --secondary-background: #F4F5F9;
+
+        --primary-text-color-dark: #000000;
+        --primary-text-color-light: #ffffff;
+        --secondary-text-color: #D6D6D6;
+
+        --primary-style-color: #7F7FD5;
+        --secondary-style-color-hover:#9292de;
+        --primary-syle-color-hover:#5b5b94;
+        --primary-style-shade:#EAEBED;
+        --secondary-style-shade:#c3c5ca;
+        --primary-style-link:#0172B1;
+        
+    }
+
+
+
+    /*====================================================*/
+
+    body{
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 60px 1fr;
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    .navbar{
+        background-color: var(--primary-background);
+        grid-column: 2/3;
+        grid-row: 1/2;
+
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar .icons i{
+        color: black;
+    }
+    .logo {
+        gap: 10px;
+        align-items: center;
+        display: flex;
+        color: var(--primary-style-color);
+        margin-left: 30px;
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+
+    .logo h1{
+        font-size: 15px;
+        color:var(--primary-text-color-dark);
+    }
+
+    .search-bar {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        background-color: var(--secondary-background);
+        border-radius: 20px;
+        padding: 5px;
+        max-width: 50%;
+    }
+
+    .search-bar input {
+        flex: 1;
+        border: none;    
+        background: none;
+        outline: none;
+        padding: 8px;
+    }
+
+    .search-bar button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+    .navbar i.fa-chevron-down{
+        font-size: 10px;
+        margin-left: -10px;
+        color: #0000006b;
+        cursor: pointer;
+
+    }
+
+    .navbar  #browse-b {
+    text-decoration: none;
+    font-weight: 500;
+    color: #000000;
+    margin: 10px;
+    font-size: 12px;
+    }
+    .navbar  #browse-b:hover {
+        color: #9292de;
+    }
+
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+        width: 45%;
+        float: left;
+    }
+
+    .icons i,
+    .icons img {
+        color: white;
+    }
+
+
+
+
+    .side-bar{
+        background-color: 
+        var(--primary-background);
+        grid-column: 1/2;
+        grid-row: 1/3;
+        padding: 15px 1px 20px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+
+    }
+    .side-bar span{
+        color: var(--secondary-style-shade);
+        font-size: 12px;
+        font-weight: 500;
+        margin-left:30px;
+
+    }
+    .side-bar .sub-bar{
+        display: flex;
+        align-items: center;
+        float: right;
+        gap: 10px;
+        height: 40px;
+        width: 98%;
+        transition: 0.2s;
+        cursor: pointer;
+        border-left: 5px solid transparent;
+
+    }
+
+
+    .side-bar .sub-bar:hover{
+        background-color: #ebebeb8a;
+        height: 50px;
+
+    }
+    .side-bar .sub-bar h1{
+        font-size: 14px;
+
+    }
+    .side-bar .sub-bar h1 a{
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--primary-text-color);
+    }
+    .side-bar .sub-bar i{
+        color: var(--primary-text-color);
+        margin-left: 30px;
+        width: 25px;
+    }
+
+    .side-bar .sub-bar.bar-selected{
+        border-left: 5px solid var(--primary-style-color);
+
+    }
+
+    .side-bar .sub-settings{
+    position: absolute;
+    bottom: 0;
+    }
+
+    @media only screen and (max-width:936px){
+        body{
+            grid-template-columns: 0px 1fr;
+        }
+        .side-bar{
+            display: none;
+        }
+    } 
+
+    .dashboard{
+        background-color: var(--secondary-background);
+        grid-column: 2/3;
+        grid-row: 2/3;
+        padding: 10px;
+
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 10px; 
+        grid-template-areas: 
+        "Courses Courses filter"
+        "Courses Courses filter"
+        "Courses Courses Notification"; 
+    }
+    .courses {
+        grid-area: Courses; 
+        background-color: var(--secondary-background);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .courses .pre-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .courses .pre-head h5 {
+        padding: 10px;
+    }
+    .courses .pre-head #arrows{
+        display: flex;
+        margin-left: 50px;
+        gap: 10px;
+    }
+    .courses .pre-head #arrows .arrow-container{
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: white;
+
+    }
+    .courses .pre-head #arrows .arrow-container:hover{
+        background-color: var(--primary-style-color);
+    }
+    .courses .pre-head #arrows .arrow-container:hover i {
+        color: white; 
+    }
+    .courses .pre-head #arrows .arrow-container i{
+        font-size: 12px;
+        top: 25%;
+        cursor: pointer;
+        right: 35%;
+        margin-left: 10px;
+        position: absolute !important;
+        color: var(--primary-style-color);
+    }
+    .top-rated {
+        grid-area: top-rated;
+        display: flex;
+        }
+    
+    .running {
+        grid-area: running; 
+        display: flex;
+        gap: 10px;
+        }
+    .running .item{
+        width: calc(50% - 20px);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-color: var(--primary-background);
+    }
+    .running .item img{
+        height: 100px;
+        border-radius: 10%;
+        cursor: pointer;
+    }
+    .running .item h3{
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .running .item i{
+        position: absolute;
+        cursor: pointer;
+        right: 20px;
+        bottom: 20px;
+    }
+    .running .item .item-content{
+        display: flex;
+        flex-direction: column;
+    }
+    .running .item span{
+        color: var(--secondary-text-color);
+        font-size: 12px;
+        margin: 0 10px;
+    }
+
+    .running .item progress{
+        width: 50%;
+        margin: 10px;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    /*================== Top Rated Section =======================*/
+    .top-rated::-webkit-scrollbar {
+        display: none;  /* Hides scrollbar in WebKit-based browsers like Chrome, Safari */
+    }
+
+    .top-rated {
+        -ms-overflow-style: none;  /* Hides scrollbar in IE and Edge */
+        scrollbar-width: none;  /* Hides scrollbar in Firefox */
+    }
+
+    .top-rated{
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+    }
+    .top-rated .item {
+        width: 33%;
+        flex: 0 0 33%; /* Adjust to show 4 courses at a time */
+        height: 280px;
+        background-color: white;
+        border-radius: 12px;
+    }
+    .top-rated .item .content {
+        padding: 10px;
+        display: flex;
+        
+        flex-direction: column;
+        position: relative;
+    }
+    .top-rated .item  .content img{
+        width: 100%;
+        height: 100px;
+    }
+    .top-rated .item .content h1{
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .top-rated .item .content p{
+        font-size: 12px;
+        color: #000000;  
+        margin-top: 10px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 3em; 
+    }
+    .top-rated .item .content span#difficulty{
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .top-rated .item .content span#price{
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        color:green;
+    }
+
+    .top-rated .item .content span#rating{
+        position: absolute;
+        top: 100%;
+        color: gold;
+    }
+
+    /*  ================ All Courses Section ============== */
+    .all::-webkit-scrollbar {
+        display: none;  /* Hides scrollbar in WebKit-based browsers like Chrome, Safari */
+    }
+
+    .all {
+        -ms-overflow-style: none;  /* Hides scrollbar in IE and Edge */
+        scrollbar-width: none;  /* Hides scrollbar in Firefox */
+    }
+    .all{
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;    
+        scroll-behavior: smooth;  /* Smooth scrolling effect */
+        white-space: nowrap;  /* Prevents items from wrapping */
+    }
+    .all .item {
+        width: 33%;
+        flex: 0 0 33%; /* Adjust to show 4 courses at a time */
+        height: 280px;
+        background-color: white;
+        border-radius: 12px;
+    }
+    .all .item .content {
+        padding: 10px;
+        display: flex;
+        
+        flex-direction: column;
+        position: relative;
+    }
+    .all .item  .content img{
+        width: 100%;
+        height: 100px;
+    }
+    .all .item .content h1{
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .all .item .content p{
+        font-size: 12px;
+        color: #000000;  
+        margin-top: 10px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 3em; 
+    }
+    .all .item .content span#difficulty{
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .all .item .content span#price{
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        color:green;
+    }
+
+    .all .item .content span#rating{
+        position: absolute;
+        top: 100%;
+        color: gold;
+    }
+
+
+    /* WebKit specific styles */
+    progress::-webkit-progress-bar {
+        background-color: #eee;
+        height: 50%;
+    }
+
+    progress::-webkit-progress-value {
+        background: linear-gradient(to right, #3498db, #2980b9); /* Change the color here */
+        border-radius: 10px;
+    }
+    .featured {
+        grid-area: featured; 
+        display: flex;
+        }
+    
+
+    .filter {
+        grid-area: filter;
+        background-color: var(--primary-background);
+        border-radius: 10px;
+    }
+    .notification {
+        grid-area: Notification;
+        background-color: var(--primary-background);
+        border-radius: 10px;
+    }
+
+
+/* 
+    <div class="filter">
+    <div class="filter-info">
+        <div class="profile-info">
+            <img src="https://avatar.iran.liara.run/public" alt="#">
+            <h2>Username</h2>
+        </div>
+        <div class="streak-info">
+            <div class="total-days">
+                <h3>Total Days online</h3>
+                <span>00 days</span>
+            </div>
+            <div class="max-streak">
+                <h3>Max Streak</h3>
+                <span>00 days</span>
+            </div>
+        </div>
+        
+    </div>
+
+</div> */
+
+
+.notification{
+    display:flex;
+    flex-direction:column;
+
+}
+
+.notification .profile-info{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification .profile-circle {
+    width: 50px; 
+    height: 50px; 
+    background-color: #28a745; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+}
+
+.notification .profile-circle img {
+    width: 100px;
+    height: auto; 
+    border-radius: 50%; /* Optional: make the image circular */
+}
+.notification .profile-info h2{
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.notification .streak-info{
+    font-size: 12px;
+    display: flex;
+    gap: 20%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.notification .badges{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30%;
+    margin-top: 20px;
+}
+/*  ================ All Courses Section ============== */
+.view-all-courses {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;  /* Allow items to wrap to the next line */
+}
+
+.view-all-courses .item {
+    width: calc(33.33% - 10px); /* Adjust for the gap */
+    height: 280px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.view-all-courses .item .content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+    .view-all-courses .item  .content img{
+        width: 100%;
+        height: 100px;
+    }
+    .view-all-courses .item .content h1{
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .view-all-courses .item .content p{
+        font-size: 12px;
+        color: #000000;  
+        margin-top: 10px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 3em; 
+    }
+    .view-all-courses .item .content span#difficulty{
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .view-all-courses .item .content span#price{
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        color:green;
+    }
+
+    .view-all-courses .item .content span#rating{
+        position: absolute;
+        top: 100%;
+        color: gold;
+    }
+
