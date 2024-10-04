@@ -1,0 +1,530 @@
+:root {
+    --primary-background: #f0f0f5;
+    --primary-light-background: #fff;
+    --secondary-background: #e5e5f7;
+    --primary-style-color: #333;
+    --primary-text-color-dark: #000;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--primary-background);
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr;
+}
+
+.navbar {
+    background-color: var(--primary-light-background);
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar .icons i {
+    color: black;
+}
+
+
+.logo {
+    gap: 10px;
+    align-items: center;
+    display: flex;
+    color: cadetblue;
+    margin: 0 30px;
+    font-size: 25px;
+}
+
+.logo h1 {
+    font-size: 15px;
+    color: var(--primary-text-color-dark);
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-background);
+    border-radius: 20px;
+    padding: 5px;
+    max-width: 40%;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;    
+    background: none;
+    outline: none;
+    padding: 8px;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.navbar i.fa-chevron-down {
+    font-size: 10px;
+    margin-left: -10px;
+    color: #0000006b;
+    cursor: pointer;
+}
+
+.navbar #browse-b {
+    text-decoration: none;
+    font-weight: 500;
+    color: #000000;
+    margin: 10px;
+    font-size: 12px;
+}
+
+.navbar #browse-b:hover {
+    color: #9292de;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 35%;
+}
+
+.icons i, .icons img {
+    color: black;
+}
+
+.side-bar {
+    background-color: var(--primary-background);
+    grid-column: 1/2;
+    grid-row: 1/3;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.dashboard-content {
+    padding: 20px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.dashboard-header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stats-section {
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 16px;
+}
+
+.courses-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.course-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.course-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+    }
+
+    .navbar {
+        grid-column: 1/2;
+    }
+
+    .side-bar, .right-sidebar {
+        display: none;
+    }
+
+    .courses-section {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* For the sidebars and control panel */
+.side-bar, .right-sidebar {
+    background-color: var(--primary-light-background); /* Light version of primary background */
+    color: var(--primary-text-color-dark); /* Ensure text contrast is good */
+}
+
+/* For the settings container */
+.settings-section {
+    background-color: var(--primary-light-background);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* For control panel buttons and links */
+.right-sidebar button {
+    background-color: var(--primary-light-background);
+    border: 1px solid var(--primary-text-color-dark);
+    padding: 10px 15px;
+    color: var(--primary-text-color-dark);
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.right-sidebar button:hover {
+    background-color: var(--primary-background); /* Slightly darker on hover */
+}
+
+/* Style navigation links */
+.side-bar a, .right-sidebar a {
+    text-decoration: none;
+    color: var(--primary-text-color-dark);
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.side-bar a:hover, .right-sidebar a:hover {
+    background-color: var(--primary-background);
+    color: #fff; /* White text on hover */
+}
+
+
+
+
+.side-bar{
+    background-color: 
+    var(--primary-light-background);
+    grid-column: 1/2;
+    grid-row: 1/3;
+    padding: 60px 1px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.side-bar {
+    background-color: var(--primary-light-background);
+    grid-column: 1/2;
+    grid-row: 1/3;
+    padding: 60px 1px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.side-bar span {
+    color: var(--secondary-style-shade);
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+.side-bar .sub-bar {
+    display: flex;
+    align-items: center;
+    float: right;
+    gap: 10px;
+    height: 40px;
+    width: 98%;
+    transition: 0.2s;
+    cursor: pointer;
+    border-left: 5px solid transparent;
+}
+
+.side-bar .sub-bar:hover {
+    background-color: #ebebeb8a;
+    height: 50px;
+}
+
+.side-bar .sub-bar h1 {
+    font-size: 14px;
+}
+
+.side-bar .sub-bar h1 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+
+.side-bar .sub-bar i {
+    color: var(--primary-text-color);
+    margin-left: 30px;
+    width: 25px;
+}
+
+.side-bar .sub-bar.bar-selected {
+    border-left: 5px solid var(--primary-style-color);
+}
+
+.side-bar .sub-settings {
+    position: absolute;
+    bottom: 0;
+}
+@media (max-width: 768px) {
+    /* Layout adjustments for small screens */
+    body {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto 1fr;
+    }
+
+    .navbar {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .side-bar, .right-sidebar {
+        display: none; /* Hide sidebars on smaller screens */
+    }
+
+    .dashboard-content {
+        grid-column: 1/2;
+    }
+
+    .stats-grid, .courses-section {
+        grid-template-columns: 1fr; /* Single column for stats and courses */
+    }
+
+    /* Adjust buttons and font sizes for smaller screens */
+    .buttons button {
+        width: 100%; /* Full-width buttons for better touch interaction */
+    }
+
+    .stat-card, .course-card {
+        padding: 15px;
+    }
+
+    .stat-card h3, .course-card h3 {
+        font-size: 16px; /* Smaller fonts */
+    }
+
+    .stat-card p, .buttons button {
+        font-size: 14px;
+    }
+
+    .settings-section {
+        padding: 15px;
+    }
+
+    .right-sidebar button {
+        font-size: 14px; /* Smaller buttons for better fit */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Additional adjustments for extra small screens */
+    .search-bar {
+        max-width: 100%; /* Search bar spans full width */
+        padding: 5px;
+    }
+
+    .search-bar input {
+        padding: 6px;
+        font-size: 14px; /* Smaller input font size */
+    }
+
+    .logo {
+        font-size: 18px;
+        margin: 0 10px; /* Reduce logo size and margins */
+    }
+
+    .logo h1 {
+        font-size: 12px; /* Reduce logo text size */
+    }
+
+    .icons {
+        width: 40%; /* Adjust icon section width */
+        gap: 10px;
+    }
+
+    .buttons button {
+        font-size: 14px;
+        padding: 8px 15px; /* Smaller button size */
+    }
+
+    .stat-card h3 {
+        font-size: 14px;
+    }
+
+    .stat-card p {
+        font-size: 12px;
+    }
+
+    .side-bar .sub-bar h1 {
+        font-size: 12px; /* Smaller sidebar text */
+    }
+
+    .side-bar .sub-bar {
+        height: 35px; /* Reduce height of sidebar items */
+    }
+
+/* General improvement for responsiveness */
+.side-bar {
+    max-width: 250px; /* Set a max-width for the sidebar */
+}
+
+.right-sidebar {
+    max-width: 250px; /* Set a max-width for the right sidebar */
+}
+
+/* Adjust the course and stats cards for better responsiveness */
+.course-card img {
+    height: 120px; /* Reduce image height on smaller screens */
+}
+
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px; /* Maximum width */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Form Styles */
+.modal form {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px; /* Space between columns */
+}
+
+.modal label {
+    display: block; /* Block to ensure proper spacing */
+    margin-bottom: 5px; /* Space below labels */
+}
+
+.modal input,.modal textarea,.modal select {
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.modal button {
+    grid-column: span 2; /* Span across both columns */
+    background-color: cadetblue; /* Green background */
+    color: white; /* White text */
+    padding: 10px; /* Inner padding */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.modal button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Close button styles */
+.modal .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal .close-btn:hover,
+.modal .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .modal form {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
